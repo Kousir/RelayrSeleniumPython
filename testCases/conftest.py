@@ -2,7 +2,10 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import pytest
 
-#Performing chrome driver configurations
+"""
+This method is to perform chrome driver setup & necessary configuration such as handling 
+mic, camera, notification & location permissions. 
+"""
 
 @pytest.fixture()
 def setup():

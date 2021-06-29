@@ -1,6 +1,9 @@
 import time
 
 class Search:
+
+    """Locators"""
+
     searchbar_name= "q"
     searchbar_xpath="//input[@name='q']"
     searchbar_mic_xpath = "//div[@jscontroller='unV4T']"
@@ -9,8 +12,16 @@ class Search:
     livemic_repord_xpath = "//div/span[@id='spchb']"
     livemic_exit_xpath = "//div/button[@id='spchx']"
 
+    """
+    Defining a constructor  
+    """
+
     def __init__(self, driver):
         self.driver = driver
+
+    """
+    Action methods to validate the presence of UI elements by including asserts
+    """
 
     def isSearchbarDisplayed(self):
         searchbar = self.driver.find_element_by_name(self.searchbar_name)
@@ -26,9 +37,6 @@ class Search:
         time.sleep(1)
         self.driver.find_element_by_name(self.searchbar_name).send_keys(input)
 
-
-
-
     def clickOnSearchbar(self):
         self.driver.find_element_by_xpath(self.searchbar_xpath).click()
         trendsearches = self.driver.find_element_by_xpath(self.empty_seachbar_click_xpath)
@@ -38,7 +46,6 @@ class Search:
         else:
             print("Trending searches are not displayed")
             assert False
-
 
     def isMicInputWorking(self):
         mic = self.driver.find_element_by_xpath(self.searchbar_mic_xpath)

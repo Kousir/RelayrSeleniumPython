@@ -1,6 +1,8 @@
 import logging
 
-#Method to define logger
+"""
+Method to initiate the setup for logger package
+"""
 
 class loggen:
     @staticmethod

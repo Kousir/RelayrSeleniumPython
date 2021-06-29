@@ -1,11 +1,22 @@
 import time
 
 class Voicesearch:
+
+    """Locators"""
+
     livemic_repord_xpath = "//span[@id='spchb']"
     livemic_exit_xpath = "//div/button[@id='spchx']"
 
+    """
+    Defining a constructor  
+    """
+
     def __init__(self, driver):
         self.driver = driver
+
+    """
+    Action methods to handle mic permission & UI elements 
+    """
 
     def voicesearchvalidate(self):
         livemic = self.driver.find_element_by_xpath(self.livemic_repord_xpath)

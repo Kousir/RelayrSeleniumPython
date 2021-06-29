@@ -1,5 +1,4 @@
 import time
-import openpyxl
 from pageObjects.Homepage import Search
 from pageObjects.Voicesearchpage import Voicesearch
 from pageObjects.Autosuggestions import AutoSuggest
@@ -13,7 +12,10 @@ class TestSearchUI:
     URL = Readconfig.getURL()
     logger = loggen.loggen()
 
-#Test methods to validating UI
+    """
+    Verify whether user is able to see all the UI elements as per the BRD/mock ups. i.e. Search bar, mic button, 
+    record button, trending searcher, etc
+    """
 
     def test_searchUI(self, setup):
         self.driver = setup
@@ -41,12 +43,15 @@ class TestSearchUI:
         self.voice.voicesearchvalidate()
         self.driver.close()
 
-#Test methods to validate functionality
-
 class TestSearchUX:
     URL = Readconfig.getURL()
     logger = loggen.loggen()
     path = "./testData/Relayrdata.xlsx"
+
+    """
+    Verify the core functionality of search page such as submit search, page navigation, scroll, 
+    browser navigation, etc.  
+    """
 
     def test_searchbytype(self, setup):
         self.driver = setup
@@ -67,7 +72,7 @@ class TestSearchUX:
 
         self.logger.info("***********Test 6************")
         self.logger.info("************Sending req to the search bar***********")
-        self.driver.save_screenshot(".\\Screencaptures\\" + "Autosuggestio.png")
+        self.driver.save_screenshot(".\\Screencaptures\\" + "Autosuggestions.png")
         time.sleep(2)
         self.suggest.clearsuggestion()
         for r in range(3, self.rows+1):

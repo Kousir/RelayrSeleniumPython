@@ -1,6 +1,8 @@
 import openpyxl
 
-#Methods to get the excel data, if needed
+"""
+Methods to get the excel data (row count, column count, sheet, etc. if needed
+"""
 
 def getRowCount(file,sheetName):
     workbook = openpyxl.load_workbook(file)

@@ -2,13 +2,22 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 class Results:
 
+    """Locators"""
+
     page_10_xpath = "//tbody/tr/td/a[@aria-label='Page 10']"
     settings_id = "abar_button_opt"
+
+    """
+    Defining a constructor  
+    """
 
     def __init__(self, driver):
         self.driver = driver
 
-#URL Validation
+    """
+    Validating the current URL to make sure it has the respective search key 
+    """
+
     def getpageurl(self):
         self.url = self.driver.current_url
         if "search?q=Munich+re" in self.url:
@@ -19,7 +28,10 @@ class Results:
             print("Incorrect result page displayed")
             assert False
 
-#HTML Body validation
+    """
+    Validating the content of the page to make sure it has specific expected text 
+    """
+
     def nextpage(self):
         element = self.driver.find_element_by_xpath(self.page_10_xpath)
         self.action = ActionChains(self.driver)
@@ -32,7 +44,10 @@ class Results:
             print("Error in finding the content")
             assert True == False
 
-#JavaScript_Methods
+    """
+    Javascript to perform browser action such as Navigation, scroll, etc.  
+    """
+
     def jsback(self):
         self.driver.execute_script("window.history.go(-1)")
 
